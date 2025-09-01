@@ -1,0 +1,112 @@
+
+// Description: Java 11 MssCF Binding for SecForm Column SecAppId.
+
+/*
+ *	server.markhome.msscf.CFSec
+ *
+ *	Copyright (c) 2020-2025 Mark Stephen Sobkow
+ *	
+ *
+ *	Manufactured by MSS Code Factory 2.13
+ */
+
+package server.markhome.msscf.cfsec.CFSecMssCF;
+
+import java.math.*;
+import java.sql.*;
+import java.util.*;
+import org.msscf.msscf.cflib.CFLib.*;
+import org.msscf.msscf.cfcore.MssCF.*;
+import server.markhome.msscf.cfsec.CFSec.*;
+import server.markhome.msscf.cfsec.CFSecObj.*;
+import org.apache.commons.codec.binary.Base64;
+
+/**
+ *	CFSecMssCFBindSecFormSecAppId binds SecForm.SecAppId
+ *	as an instance of MssCFGenBindObj.
+ */
+public class CFSecMssCFBindSecFormSecAppId
+	extends MssCFGenBindObj
+{
+	private static final long serialVersionUID = 1L;
+
+	public CFSecMssCFBindSecFormSecAppId() {
+		super();
+	}
+
+	public CFSecMssCFBindSecFormSecAppId( MssCFEngine argEngine ) {
+		super( argEngine,
+			"any",
+			null,
+			"SecForm",
+			"SecAppId" );
+	}
+	public Object getValueObject( MssCFGenContext genContext ) {
+		final String S_ProcName = "CFSecMssCFBindSecFormSecAppId.getValueObject() ";
+
+		if( genContext == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"expandBody",
+				1,
+				"genContext" );
+		}
+
+		ICFLibAnyObj genDef = genContext.getGenDef();
+		if( genDef == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"expandBody",
+				1,
+				"genContext.getGenDef()" );
+		}
+
+		int secAppId;
+		if( genDef instanceof ICFSecSecFormObj ) {
+			secAppId = ((ICFSecSecFormObj)genDef).getRequiredSecAppId();
+		}
+		else {
+			throw new CFLibUnsupportedClassException( getClass(),
+				"expandBody",
+				"genContext.getGenDef()",
+				genDef,
+				"ICFSecSecFormObj" );
+		}
+
+		return( secAppId );
+	}
+
+	public String expandBody( MssCFGenContext genContext ) {
+		final String S_ProcName = "CFSecMssCFBindSecFormSecAppId.expandBody() ";
+
+		if( genContext == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"expandBody",
+				1,
+				"genContext" );
+		}
+
+		ICFLibAnyObj genDef = genContext.getGenDef();
+		if( genDef == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"expandBody",
+				1,
+				"genContext.getGenDef()" );
+		}
+
+		String ret;
+
+		if( genDef instanceof ICFSecSecFormObj ) {
+			int secAppId = ((ICFSecSecFormObj)genDef).getRequiredSecAppId();
+			ret = Integer.toString( secAppId );
+		}
+		else {
+			throw new CFLibUnsupportedClassException( getClass(),
+				"expandBody",
+				"genContext.getGenDef()",
+				genDef,
+				"ICFSecSecFormObj" );
+		}
+
+		return( ret );
+	}
+
+}
